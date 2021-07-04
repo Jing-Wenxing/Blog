@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blogs.blogend.mapper.ClassMapper">
+    <select id="getMaxID" resultType="Integer">
+        SELECT
+            MAX(id-"")
+        FROM
+            classes
+    </select>
+
+    <select id="getALlArtcleDataofPage" resultType="com.blogs.blogend.entity.Classes">
+        SELECT
+            *
+        FROM
+            classes
+        ORDER BY
+            id
+            limit #{page}, 10
+    </select>
+
+    <select id="getALlClassData" resultType="com.blogs.blogend.entity.Classes">
+        SELECT
+            *
+        FROM
+            classes
+        ORDER BY
+            id
+    </select>
+
+    <select id="tablesValue" resultType="Integer">
+        SELECT
+            COUNT(*)
+        FROM
+            classes
+    </select>
+
+    <delete id="deleteClassData" parameterType="String">
+        DELETE FROM
+            classes
+        WHERE
+            title = #{classification}
+    </delete>
+
+    <insert id="uploadData" parameterType="com.blogs.blogend.entity.Classes">
+        INSERT INTO
+            classes
+            ( id, title, description, timeline )
+        VALUES
+            ( #{id}, #{title}, #{description}, #{timeline} );
+    </insert>
+</mapper>

@@ -1,0 +1,27 @@
+{
+  "name": "BlogFront2.0",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@kangc/v-md-editor": "^1.7.6",
+    "babel-plugin-prismjs": "^2.0.1",
+    "core-js": "^3.9.1",
+    "element-ui": "^2.15.1",
+    "github-markdown-css": "^4.0.0",
+    "highlight.js": "^11.0.1",
+    "nuxt": "^2.15.3",
+    "vant": "^2.12.19"
+  },
+  "devDependencies": {
+    "@nuxtjs/axios": "^5.13.5",
+    "@nuxtjs/proxy": "^2.1.0",
+    "axios": "^0.21.1",
+    "qs": "^6.10.1"
+  }
+}

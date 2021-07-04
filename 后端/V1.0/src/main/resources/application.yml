@@ -1,0 +1,19 @@
+server:
+  port:
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ ?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username:
+    password:
+    hikari:
+      max-lifetime:
+  profiles:
+    active: prod
+
+mybatis:
+  type-aliases-package: com.blogs.blogend
+
+  mapper-locations: classpath:com/blogs/blogend/mapper/*Mapper.xml
+

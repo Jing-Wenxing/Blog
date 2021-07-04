@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blogs.blogend.mapper.ArtcleMapper">
+    <select id="getMaxID" resultType="Integer">
+        SELECT
+            MAX(id-"")
+        FROM
+            artcles
+    </select>
+
+    <insert id="uploadData" parameterType="com.blogs.blogend.entity.Artcle">
+        INSERT INTO
+            artcles
+            ( id, title, timeline, summary, text, classification, isshow )
+        VALUES
+            ( #{id}, #{title}, #{timeline}, #{summary}, #{text}, #{classification}, #{isshow} );
+    </insert>
+
+    <select id="tablesValue" resultType="Integer">
+        SELECT
+            COUNT(*)
+        FROM
+            artcles
+    </select>
+
+    <select id="getDataofID" resultType="com.blogs.blogend.entity.Artcle">
+        SELECT
+            *
+        FROM
+            artcles
+        WHERE
+            id=#{Id}
+    </select>
+
+    <select id="getALlArtcleDataofPage" resultType="com.blogs.blogend.entity.Artcle">
+        SELECT
+            *
+        FROM
+            artcles
+        ORDER BY
+            timeline
+        DESC
+            limit #{page}, 10
+    </select>
+
+    <select id="getALlFrontArtcleDataofPage" resultType="com.blogs.blogend.entity.Artcle">
+        SELECT
+            *
+        FROM
+            artcles
+        WHERE
+            isshow = true
+        ORDER BY
+            timeline
+                DESC
+            limit #{page}, 10
+    </select>
+
+    <delete id="deleteArtcleData" parameterType="String">
+        DELETE FROM
+            artcles
+        WHERE
+            id=#{Id}
+    </delete>
+
+    <update id="updataArtcleClass" parameterType="String">
+        UPDATE
+            artcles
+        SET
+            classification = '未分类'
+        WHERE
+            classification = #{classification};
+    </update>
+
+    <update id="updataArtcleIsShow" parameterType="String">
+        UPDATE
+            artcles
+        SET
+            isshow = !isshow
+        WHERE
+            id = #{id};
+    </update>
+
+    <update id="updateData" parameterType="com.blogs.blogend.entity.Artcle">
+        UPDATE
+            artcles
+        SET
+            title = #{title},
+            text = #{text},
+            summary = #{summary},
+            classification = #{classification},
+            isshow = #{isshow}
+        WHERE
+            id = #{id};
+    </update>
+</mapper>

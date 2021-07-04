@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blogs.blogend.mapper.TimelineMapper">
+    <select id="getMaxID" resultType="Integer">
+        SELECT
+            MAX(id-"")
+        FROM
+            timelines
+    </select>
+
+    <select id="tablesValue" resultType="Integer">
+        SELECT
+            COUNT(*)
+        FROM
+            timelines
+    </select>
+
+    <select id="getALlTimelineData" resultType="com.blogs.blogend.entity.Timeline">
+        SELECT
+            *
+        FROM
+            timelines
+        ORDER BY
+            timeline
+    </select>
+
+    <select id="getALlTimelineDataofPage" resultType="com.blogs.blogend.entity.Timeline">
+        SELECT
+            *
+        FROM
+            timelines
+        ORDER BY
+            timeline
+        limit #{page}, 10
+    </select>
+
+    <select id="selectOFID" resultType="com.blogs.blogend.entity.Timeline">
+        SELECT
+            *
+        FROM
+            timelines
+        WHERE
+            id=#{id}
+    </select>
+
+    <insert id="uploadData" parameterType="com.blogs.blogend.entity.Timeline">
+        INSERT INTO
+            timelines
+            ( id, timeline, classification, title, text, img, icon, color )
+        VALUES
+            ( #{id}, #{timeline}, #{classification}, #{title}, #{text}, #{img}, #{icon}, #{color} );
+    </insert>
+
+    <delete id="deleteTimelineData" parameterType="String">
+        DELETE FROM
+            timelines
+        WHERE
+            id=#{Id}
+    </delete>
+</mapper>

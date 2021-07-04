@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blogs.blogend.mapper.SwiperMapper">
+    <select id="getALlSwiperData" resultType="com.blogs.blogend.entity.Swiper">
+        SELECT
+            *
+        FROM
+            swipers
+        ORDER BY
+            swquence
+    </select>
+
+    <select id="getALlShowSwiperData" resultType="com.blogs.blogend.entity.Swiper">
+        SELECT
+            *
+        FROM
+            swipers
+        WHERE
+            isshow = true
+        ORDER BY
+            swquence
+    </select>
+
+    <select id="getSwiperSwquenceOfID" resultType="String">
+        SELECT
+            swquence
+        FROM
+            swipers
+        WHERE
+            id=#{Id}
+    </select>
+
+    <select id="getSwiperIDOfSwquence" resultType="String">
+        SELECT
+            id
+        FROM
+            swipers
+        WHERE
+            swquence=#{swquence}
+    </select>
+
+    <select id="getMaxID" resultType="Integer">
+        SELECT
+            MAX(id-"")
+        FROM
+            swipers
+    </select>
+
+    <select id="getMaxSwquence" resultType="Integer">
+        SELECT
+            MAX(swquence-"")
+        FROM
+            swipers
+    </select>
+
+    <insert id="insertSwiperUnlessImg" parameterType="com.blogs.blogend.entity.Swiper">
+        INSERT INTO
+            swipers
+            ( id, title, text, img, swquence, isshow )
+        VALUES
+            ( #{id}, #{title}, #{text}, #{img}, #{swquence}, #{isshow} );
+    </insert>
+
+    <delete id="deleteSwiperData" parameterType="String">
+        DELETE FROM
+            swipers
+        WHERE
+            id=#{Id}
+    </delete>
+
+    <update id="updataSwiperSwquenceNumerous" parameterType="String">
+        UPDATE
+            swipers
+        SET
+            swquence = swquence - "" - 1 + ""
+        WHERE
+            swquence-"" > #{swquence};
+    </update>
+
+    <update id="updataSwiperSwquence" parameterType="String">
+        UPDATE
+            swipers
+        SET
+            swquence = #{swquence}
+        WHERE
+            id = #{id};
+    </update>
+
+    <update id="updataSwiperIsshow" parameterType="String">
+        UPDATE
+            swipers
+        SET
+            isshow = !isshow
+        WHERE
+            id = #{id};
+    </update>
+
+    <update id="updataSwiperAttributes" parameterType="com.blogs.blogend.entity.Swiper">
+        UPDATE
+            swipers
+        SET
+            title = #{title},
+            text = #{text}
+        WHERE
+              id = #{id};
+    </update>
+
+    <select id="tablesValue" resultType="Integer">
+        SELECT
+            COUNT(*)
+        FROM
+            swipers
+    </select>
+
+    <select id="getALlSwiperDataofPage" resultType="com.blogs.blogend.entity.Swiper">
+        SELECT
+            *
+        FROM
+            swipers
+        ORDER BY
+            swquence
+        limit #{page}, 10
+    </select>
+</mapper>

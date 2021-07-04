@@ -1,0 +1,128 @@
+.side {
+  display: flex;
+  width: 100px;
+  height: 100vh;
+  transition: all 0.3s ease-in-out;
+}
+
+.side-none {
+  width: 0px;
+  height: 100vh;
+  transition: all 0.3s ease-in-out;
+}
+
+.page-content {
+  width: calc(100vw - 100px);
+  transition: all 0.3s ease-in-out;
+}
+
+.page-content-noside {
+  width: 100vw;
+  transition: all 0.3s ease-in-out;
+}
+
+.page-content,
+.page-content-noside {
+  position: relative;
+}
+
+.std-pagetitle {
+  margin-left: 40px;
+  padding: 7.5px 20px;
+  border-left: 5px solid #7277ef;
+  font-size: 22px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.std-titlerange {
+  padding: 10px 0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  background: #fff;
+  z-index: 10;
+}
+
+.std-blocktitle {
+  font-size: 22px;
+  color: #000;
+  font-weight: bold;
+}
+
+.std-blocksubtitle {
+  font-size: 18px;
+  color: #1d1d1d;
+  font-weight: bold;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: #282C34 !important;
+}
+
+/* === */
+
+.std-table {
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(168, 180, 227, 0.75);
+}
+
+.std-opreate {
+  padding: 20px;
+  border-radius: 10px 10px 0 0;
+  width: calc(100% - 40px);
+  background: #f7f9ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.std-opreate .button {
+  width: 75px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  background: #879fe5;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 7.5px;
+  cursor: pointer;
+}
+
+/* === */
+
+.std-content {
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(168, 180, 227, 0.75);
+}
+
+.std-content-top {
+  border-radius: 10px 10px 0 0;
+  padding: 0 20px;
+  height: 60px;
+  background: #F7F9FF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.std-content-center {
+  height: 650px;
+  background: #fff;
+}
+
+.std-content-bottom {
+  padding: 0 20px;
+  border-radius: 0 0 10px 10px;
+  height: 60px;
+  background: #F1F5FF;
+  display: flex;
+  align-items: center;
+}
+
+.std-overlayrange {
+  padding: 25px;
+  width: 600px;
+  height: 350px;
+  background: #fff;
+  border-radius: 10px;
+}
